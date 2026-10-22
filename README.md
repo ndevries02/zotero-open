@@ -10,7 +10,7 @@ Notion blocks `zotero://` links. This page acts as a go-between: it takes a Zote
 2. Add a Formula property with:
 
 ```
-if(empty(prop("File Path")), "", link("📄 Open PDF", "https://your-username.github.io/zotero-open/?" + prop("File Path").match("[A-Z0-9]{8}").first()))
+if(empty(prop("File Path")), "", link("📄 Open PDF", "https://ndevries02.github.io/zotero-open/?" + prop("File Path").match("[A-Z0-9]{8}").first()))
 ```
 
 The formula extracts the 8-character key from the file path (e.g. `...\Zotero\storage\32PUWSGN\article.pdf`) and builds the link.
