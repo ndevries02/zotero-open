@@ -2,25 +2,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open in Zotero</title>
-<style>
-  body { font-family: system-ui, sans-serif; display: flex; min-height: 100vh; margin: 0;
-         align-items: center; justify-content: center; text-align: center; padding: 1.5rem; }
-  a { display: inline-block; margin-top: 1rem; padding: .8rem 1.4rem; border-radius: 6px;
-      background: #b3261e; color: #fff; text-decoration: none; font-weight: 600; }
-</style>
-<div>
-  <p id="msg">Opening the PDF in Zotero…</p>
-  <a id="btn" href="#">Open in Zotero</a>
-</div>
+<p id="msg">Opening the PDF in Zotero…</p>
 <script>
   const k = location.search.slice(1);
-  const btn = document.getElementById("btn");
+  const msg = document.getElementById("msg");
   if (/^[A-Z0-9]{8}$/.test(k)) {
-    const url = "zotero://open-pdf/library/items/" + k;
-    btn.href = url;
-    location.href = url;
+    location.href = "zotero://open-pdf/library/items/" + k;
+    setTimeout(() => {
+      window.close();
+      msg.textContent = "The PDF has been sent to Zotero. You can close this tab.";
+    }, 1500);
   } else {
-    document.getElementById("msg").textContent = "No valid Zotero key in the URL (expected ?XXXXXXXX).";
-    btn.style.display = "none";
+    msg.textContent = "No valid Zotero key in the URL (expected ?XXXXXXXX).";
   }
 </script>
