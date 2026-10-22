@@ -1,0 +1,8 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Ouverture dans Zotero…</title>
+<script>
+  const k = location.search.slice(1);
+  if (/^[A-Z0-9]{8}$/.test(k)) location.href = "zotero://open-pdf/library/items/" + k;
+</script>
+<p>Ouverture du PDF dans Zotero…</p>
