@@ -1,18 +1,8 @@
 <!doctype html>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Open in Zotero</title>
-<p id="msg">Opening the PDF in Zotero…</p>
+<title>Opening in Zotero…</title>
 <script>
   const k = location.search.slice(1);
-  const msg = document.getElementById("msg");
-  if (/^[A-Z0-9]{8}$/.test(k)) {
-    location.href = "zotero://open-pdf/library/items/" + k;
-    setTimeout(() => {
-      window.close();
-      msg.textContent = "The PDF has been sent to Zotero. You can close this tab.";
-    }, 1500);
-  } else {
-    msg.textContent = "No valid Zotero key in the URL (expected ?XXXXXXXX).";
-  }
+  if (/^[A-Z0-9]{8}$/.test(k)) location.href = "zotero://open-pdf/library/items/" + k;
 </script>
+<p>Opening PDF in Zotero…</p>
